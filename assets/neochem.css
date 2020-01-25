@@ -1,0 +1,31 @@
+.full-size-container{
+    height: 100%;
+    width: 100%;
+}
+html,body{
+    height: 100%;
+    width: 100%;
+}
+.shadow-text-box{
+    box-shadow: rgb(173, 152, 190) 3px 3px 3px;
+}
+.round{
+    border-radius: 20px;
+}
+.vh100-height{
+    height: 100vh;
+}
+.login-side-bar-start{
+    left: -500px;
+    transition: 2s;
+}
+.login-side-bar-position{
+    left: 0;
+    transition: 2s;
+}
+.neochem-primary-bg-color{
+    background-color: rgb(63, 24, 61);
+}
+.min-height-100vh{
+    min-height: 100vh;
+}
