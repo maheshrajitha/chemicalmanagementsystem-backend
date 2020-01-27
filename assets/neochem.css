@@ -29,3 +29,39 @@ html,body{
 .min-height-100vh{
     min-height: 100vh;
 }
+.font-pt-sans{
+    font-family: 'PT Sans',sans-serif;
+}
+.shadow{
+    box-shadow: rgb(170, 152, 152) 5px 5px 5px;
+}
+.add-border-bottom{
+    border-bottom: 5px solid rgb(29, 21, 36);
+}
+.add-border-left{
+    border-left: 5px solid rgb(23, 10, 71);
+}
+.border-color-secondary{
+    border: rgb(23, 10, 71);
+}
+/* .side-bar-position{
+    left: 0;
+    transition: 2s;
+} */
+/* .side-bar{
+    display: inline;
+} */
+/* .side-bar-display{
+    left: 0;
+    transition: 2s;
+} */
+/* @media only screen and (max-width: 400px) {
+	.side-bar{
+        display: none;
+        transition: 2s;
+    }
+    .side-bar-position{
+        left: -500px;
+        transition: 2s;
+    }
+} */

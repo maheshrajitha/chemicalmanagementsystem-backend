@@ -19,7 +19,7 @@
             </div>
         </div>
         <div class="collapse mt-3" id="collapseExample">
-            <div class="card">
+            <div class="card shadow round">
                 <div class="card-header">
                     Add New Supplier
                 </div>

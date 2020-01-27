@@ -55,4 +55,7 @@ $route['admin'] = 'Admin_Controller';
 $route['admin/logout'] = 'Auth_Controller/logout';
 $route['admin/suppliers/(:any)'] = 'Supplier_Controller/get_all_suppliers/$1';
 $route['admin/suppliers/save-new-supplier'] = 'Supplier_Controller/save_new_supplier';
+$route['admin/chemicals/(:any)'] = 'Chemical_Controller/index/$1';
+$route['admin/search-chemicals/(:any)'] = 'Chemical_Controller/search_fixed_chemicals/$1';
+$route['admin/suppliers/search-suppliers/(:any)'] = 'Supplier_Controller/search_supplier_name/$1';
 $route['translate_uri_dashes'] = FALSE;

@@ -14,6 +14,7 @@ class Admin_Controller extends CI_Controller{
     }
     public function index(){
         $data['nav_items'] = $this->nav_items;
+        $data['title'] = 'Home';
         $this->load->view('control_panel/partials/_dashboard',$data);
         $this->load->view('control_panel/home');
         $this->load->view('control_panel/partials/_footer');

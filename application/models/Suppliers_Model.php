@@ -3,8 +3,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Suppliers_Model extends CI_Model{
     public function get_all_suppliers($page){
         if($page !== 'all'){
-            $offSet = (5 * $page) - 5;
-            return $this->db->get('suppliers',5,$offSet)->result();
+            $offSet = (10 * $page) - 10;
+            return $this->db->get('suppliers',10,$offSet)->result();
         }else{
             return $this->db->get('suppliers')->result();
         }
@@ -22,5 +22,11 @@ class Suppliers_Model extends CI_Model{
             'payments'=>0
         );
         $this->db->insert('suppliers',$supplier_data);
+    }
+    public function search_supplier_name($supplier_name){
+        $this->db->distinct();
+        $this->db->select('supplier_name');
+        $this->db->like('supplier_name',str_replace('%20',' ',$supplier_name));
+        return $this->db->get('suppliers')->result();
     }
 }

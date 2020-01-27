@@ -15,7 +15,7 @@ class Supplier_Controller extends CI_Controller{
      public function get_all_suppliers($pageNo){
         $data['suppliers'] = $this->Suppliers_Model->get_all_suppliers($pageNo);
         $data['nav_items'] = $this->nav_items;
-        $data['supplier_count'] = $this->Suppliers_Model->get_supplier_count() / 5;
+        $data['supplier_count'] = $this->Suppliers_Model->get_supplier_count() / 10;
         $data['title'] = 'Suppliers';
         $this->load->view('control_panel/partials/_dashboard',$data);
         $this->load->view('control_panel/suppliers/suppliers',$data);
@@ -25,5 +25,12 @@ class Supplier_Controller extends CI_Controller{
     public function save_new_supplier(){
         $this->Suppliers_Model->save_new_supplier($this->input);
         redirect(base_url().'suppliers/1');
+    }
+
+    public function search_supplier_name($supplier_name){
+        return $this->output
+                    ->set_content_type('application/json')
+                    ->set_status_header(200)
+                    ->set_output(json_encode($this->Suppliers_Model->search_supplier_name($supplier_name)));
     }
 }
