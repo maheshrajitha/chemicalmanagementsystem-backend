@@ -24,7 +24,7 @@
                     Add New Supplier
                 </div>
                 <div class="card-body">
-                    <form action="<?php echo base_url() ?>admin/suppliers/save-new-supplier" method="post">
+                    <form action="<?php echo base_url() ?>Supplier_Controller/save_new_supplier" method="post">
                         <div class="form-group">
                             <div class="form-row">
                                 <div class="col-sm">

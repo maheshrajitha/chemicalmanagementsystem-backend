@@ -12,19 +12,23 @@ class Supplier_Controller extends CI_Controller{
             $this->nav_items = $this->Admin_Model->load_dashboard_items(check_token_cookies()->role);
         }
     }
-     public function get_all_suppliers($pageNo){
+     public function index($pageNo){
         $data['suppliers'] = $this->Suppliers_Model->get_all_suppliers($pageNo);
         $data['nav_items'] = $this->nav_items;
         $data['supplier_count'] = $this->Suppliers_Model->get_supplier_count() / 10;
         $data['title'] = 'Suppliers';
         $this->load->view('control_panel/partials/_dashboard',$data);
-        $this->load->view('control_panel/suppliers/suppliers',$data);
+        $this->load->view('control_panel/suppliers/suppliers');
         $this->load->view('control_panel/partials/_footer');
     }
 
     public function save_new_supplier(){
-        $this->Suppliers_Model->save_new_supplier($this->input);
-        redirect(base_url().'suppliers/1');
+        if(!empty($this->input->post('supplierName')) && !empty($this->input->post('email'))){
+            $this->Suppliers_Model->save_new_supplier($this->input);
+            redirect(base_url().'admin/suppliers/1');
+        }else{
+            show_error('UNAUTHORIZED',500,'UNAUTHORIZED');
+        }
     }
 
     public function search_supplier_name($supplier_name){

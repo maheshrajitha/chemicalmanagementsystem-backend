@@ -41,6 +41,10 @@ $('#fixChemicalName').click(() => {
 $('#chemicalName').focusout(() => {
     if ($('#chemicalName').val().length < 1)
         $('#fixChemicalName').addClass('d-none');
+    else {
+        if ($('#chemicalName').val().length < 5)
+            $('#chemicalName').val($('#chemicalName').val().toUpperCase());
+    }
 });
 $('#supplierName').keyup(() => {
     $('#supplierNameList').removeClass('d-none');
@@ -69,6 +73,7 @@ $('#supplierName').focusout(() => {
     if ($('#supplierName').val().length === 0)
         $('#supplierNameList').addClass('d-none');
 });
-$('#addToStoreButton').click(() => { 
-    alert($('#fixChemicalName').val());
-});
+// $('#addToStoreButton').click(() => { 
+//     alert($('#fixChemicalName').val());
+// });
+
