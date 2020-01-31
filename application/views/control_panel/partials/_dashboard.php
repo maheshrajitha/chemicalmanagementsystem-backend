@@ -20,7 +20,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body class="font-pt-sans">
     <div class="container-fluid h-auto">
         <div class="row h-auto min-height-100vh">
-            <div class="col-sm-2 h-auto neochem-primary-bg-color navbar-dark" id="sideBar">
+            <div class="col-md-2 h-auto neochem-primary-bg-color navbar-dark" id="sideBar">
                 <h6 class="text-light mt-5 mb-5">N E O  C H E M I C A L S</h6>
                 <ul class="navbar-nav font-weight-bold">
                     <?php foreach($nav_items as $nav_item): ?>

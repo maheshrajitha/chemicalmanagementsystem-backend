@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
-<div class="col-sm">
+<div class="col-md">
     <?php $this->load->view('control_panel/partials/_top_nav_bar');?>
     <div class="container-fluid">
         <h6 class="text-center font-weight-bold text-dark">Available Chemicals In Your Store</h6>
@@ -25,12 +25,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </thead>
             <tbody>
                 <?php foreach ($chemical_list as $chemical): ?>
-                <tr>
+                <tr onClick="window.location='<?php echo base_url().'admin/sales/chemical/'.$chemical->id?>'">
                     <td><?php echo $chemical->chemical_name; ?></td>
                     <td><?php echo $chemical->pack_size; ?></td>
                     <td><?php echo $chemical->stored_count; ?></td>
                     <td><?php echo $chemical->grn_date; ?></td>
-                    <td><?php echo intval(abs(strtotime(date('Y-m-d')) - strtotime($chemical->grn_date)) / 86400); ?></td>
+                    <td><?php echo $chemical->stored_count > 0 ? intval(abs(strtotime(date('Y-m-d')) - strtotime($chemical->grn_date)) / 86400) : 0; ?></td>
                     <td><?php echo $chemical->manufacture_date ?></td>
                     <td><?php echo $chemical->exp_date?></td>
                     <td>Rs <?php echo $chemical->unit_price?></td>

@@ -18,7 +18,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<div class="row">
 			<div class="col-sm-3 login-side-bar-start d-flex align-items-center justify-content-center bg-light vh100-height" id="sideBar">
 				<form action="<?php echo base_url();?>Auth_Controller/login" method="post">
-					<?php if(!empty($this->session->flashdata('auth_error'))): ?>
+				<?php if(!empty($this->session->flashdata('auth_error'))): ?>
 						<div class="alert alert-warning text-center">
 							<?php echo $this->session->flashdata('auth_error'); ?>
 						</div>
@@ -34,6 +34,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</div>
 					<div class="form-group">
 						<button type="submit" class="btn btn-primary round btn-block" id="loginButton">Login</button>
+						<div class="alert alert-secondary text-center mt-5 shadow">
+							New User
+						</div>
+						<a class="btn btn-warning btn-block mt-2 round" href="<?php echo base_url(); ?>user/signup">Signup</a>
 					</div>
 				</form>
 			</div>

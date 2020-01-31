@@ -31,7 +31,8 @@ class Chemical_Model extends CI_Model
             'grn_date'=>$chemical_data->post('grnDate'),
             'pack_size'=>$chemical_data->post('packSize'),
             'stored_count'=>$chemical_data->post('numOfPacks'),
-            'file_no'=>$chemical_data->post('fileNo')
+            'file_no'=>$chemical_data->post('fileNo'),
+            'supplier_name'=>$chemical_data->post('supplierName')
         ));
     }
     public function add_existing_chemicals_to_store($chemical_data){
@@ -43,5 +44,25 @@ class Chemical_Model extends CI_Model
             'pack_size'=>$chemical_data->post('chemicalName'),
             'stored_count'=>$chemical_data->post('chemicalName'),
         ));
+    }
+    public function check_chemical_availability($chemical_name){
+        // return $this->db->where(array(
+        //     'chemical_name'=>$chemical_data->post('chemicalName'),
+        //     'pack_size'=>$chemical_data->post->post('packSize'),
+        //     'stored_count >='=>$chemical_data->post('count')
+        // ))->result();
+        $this->db->like('chemical_name', str_replace('%20',' ',$chemical_name));
+        return $this->db->get('chemical_storage')->result();
+    }
+    public function get_chemical_by_id($chemical_entry_id){
+        $this->db->where('id',$chemical_entry_id);
+        $this->db->where('stored_count >',0);
+        $this->db->from('chemical_storage');
+        return $this->db->get()->row();
+    }
+
+    public function update_by_id($update_details,$chemical_id){
+        $this->db->where('id',$chemical_id);
+        $this->db->update($update_details);
     }
 }

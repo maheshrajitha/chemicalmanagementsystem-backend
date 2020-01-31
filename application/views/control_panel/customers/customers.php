@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');?>
-<div class="col-sm">
+<div class="col-md">
     <div class="container-fluid">
         <?php $this->load->view('control_panel/partials/_top_nav_bar');?>
         <h6 class="text-center font-weight-bold text-dark">Available Customers</h6>

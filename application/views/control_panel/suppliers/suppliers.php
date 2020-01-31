@@ -1,4 +1,4 @@
-<div class="col-sm">
+<div class="col-md">
     <?php $this->load->view('control_panel/partials/_top_nav_bar');?>
     <div class="container-fluid mt-3">
         <div class="row">
@@ -48,7 +48,7 @@
                 </div>
             </div>
         </div>
-        <table class="table table-responsive table-dark table-bordered mt-5">
+        <table class="table table-responsive table-light table-bordered mt-5">
             <thead>
                 <tr>
                 <th>Name</th>

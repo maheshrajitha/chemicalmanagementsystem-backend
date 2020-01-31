@@ -16,7 +16,7 @@ html,body{
     height: 100vh;
 }
 .login-side-bar-start{
-    left: -500px;
+    left: -800px;
     transition: 2s;
 }
 .login-side-bar-position{
@@ -69,4 +69,8 @@ html,body{
     position: absolute;
     bottom: 0;
     top: 0;
+}
+.display-hide{
+    display: none;
+    transition: 5s;
 }

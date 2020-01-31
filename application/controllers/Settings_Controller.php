@@ -16,6 +16,7 @@ class Settings_Controller extends CI_Controller{
     }
     public function index(){
         $data['nav_items'] = $this->nav_items;
+        $data['title'] = 'Settings';
         $this->load->view('control_panel/partials/_dashboard',$data);
         $this->load->view('control_panel/settings/settings');
         $this->load->view('control_panel/partials/_footer');
