@@ -14,7 +14,7 @@ class Auth_Controller extends CI_Controller {
 		if(empty($this->input->post('email')) && empty($this->input->post('password'))){
 			redirect(base_url());
 		}else{
-			 $user = $this->User_Model->get_user_by_email($this->input->post('email'));
+			 $user = $this->Employees_Model->get_user_by_email($this->input->post('email'));
 			 if(!empty($user)){
 				 if($user->password === hash('sha256',$this->input->post('password'))){
 					 $token_cookie = generate_access_token($user);

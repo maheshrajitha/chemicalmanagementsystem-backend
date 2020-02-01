@@ -73,9 +73,9 @@ $('#supplierName').focusout(() => {
     if ($('#supplierName').val().length === 0)
         $('#supplierNameList').addClass('d-none');
 });
-// $('#addToStoreButton').click(() => { 
-//     alert($('#fixChemicalName').val());
-// });
+$('#addToStoreButton').click(() => { 
+    alert($('#fixChemicalName').val());
+});
 
 $('#chemicalNameSearchKeyword').keyup(function () {
     if ($('#chemicalNameSearchKeyword').val().length > 0) {
@@ -112,4 +112,13 @@ $('#orderQuantity').keyup(function () {
 });
 $('#orderUnitPriceWithVat').keyup(function () {
     isNaN($('#orderUnitPriceWithVat').val()) || $('#orderUnitPriceWithVat').val().length < 1 ? $('#orderTotalPriceWithVat').val(null) : $('#orderTotalPriceWithVat').val(parseFloat($('#orderUnitPriceWithVat').val()) * $('#orderQuantity').val());
+});
+//check employee exist by contact number
+$('#empContactNumber').keyup(function () {
+    $.ajax({
+        method: 'GET',
+        url: `${BASE_URL}admin/employees/check-by-contact-number/${$('#empContactNumber').val()}`
+    }).then(response => {
+        response === null ? $('#empContactNumberHelper').text('') : $('#empContactNumberHelper').text('This Contact Number Is Belongs To An Another Employee');
+    }).catch(e => console.log(e));
 });

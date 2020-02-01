@@ -63,4 +63,6 @@ $route['admin/sales'] = 'Sales_Controller';
 $route['admin/check-chemical-availability/(:any)'] = 'Chemical_Controller/check_chemical_availability/$1';
 $route['user/signup'] = 'User_Controller';
 $route['admin/sales/chemical/(:any)'] = 'Sales_Controller/put_an_order/$1';
+$route['admin/employees/(:any)'] = 'Employees_Controller/index/$1';
+$route['admin/employees/check-by-contact-number/(:any)'] = 'Employees_Controller/check_employee_by_contact_number/$1';
 $route['translate_uri_dashes'] = FALSE;

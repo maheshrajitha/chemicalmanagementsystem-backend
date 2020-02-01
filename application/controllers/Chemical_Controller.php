@@ -33,11 +33,12 @@ class Chemical_Controller extends CI_Controller{
     //add new chemicals to the store
     public function add_chemicals_to_store(){
         if(!empty($this->input->post('chemicalName')) && !empty($this->input->post('expDate'))){
-                $this->Chemical_Model->add_new_chemicals_to_store($this->input);
-                redirect(base_url().'admin/chemicals/1');
-            }else{
-                show_error('UNAUTHORIZED',500,'UNAUTHORIZED');
-            }
+            $this->Chemical_Model->delete_by_name_and_pack_size();
+            $this->Chemical_Model->add_new_chemicals_to_store($this->input);
+            redirect(base_url().'admin/chemicals/1');
+        }else{
+            show_error('UNAUTHORIZED',500,'UNAUTHORIZED');
+        }
     }
     //check chemical availability using ajax request
     public function check_chemical_availability($chemical_name){

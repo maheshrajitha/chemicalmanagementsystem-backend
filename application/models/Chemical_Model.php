@@ -35,15 +35,24 @@ class Chemical_Model extends CI_Model
             'supplier_name'=>$chemical_data->post('supplierName')
         ));
     }
-    public function add_existing_chemicals_to_store($chemical_data){
-        $this->db->set(array(
-            'chemical_name'=>$chemical_data->post('chemicalName'),
-            'exp_date'=>$chemical_data->post(''),
-            'manufacture_date'=>$chemical_data->post('chemicalName'),
-            'grn_date'=>$chemical_data->post('chemicalName'),
-            'pack_size'=>$chemical_data->post('chemicalName'),
-            'stored_count'=>$chemical_data->post('chemicalName'),
-        ));
+    public function add_existing_chemicals_to_store($chemical_data,$chemical_id){
+        // $this->db->set(array(
+        //     'chemical_name'=>$chemical_data->post('chemicalName'),
+        //     'exp_date'=>$chemical_data->post(''),
+        //     'manufacture_date'=>$chemical_data->post('chemicalName'),
+        //     'grn_date'=>$chemical_data->post('chemicalName'),
+        //     'pack_size'=>$chemical_data->post('chemicalName'),
+        //     'stored_count'=>$chemical_data->post('chemicalName'),
+        // ));
+        $updateing_data = array(
+            'exp_date'=>$chemical_data->post('expDate'),
+            'manufacture_date'=>$chemical_data->post('manufactureDate'),
+            'grn_date'=>$chemical_data->post('grnDate'),
+            'pack_size'=>$chemical_data->post('packSize'),
+            'stored_count'=>$chemical_data->post('numOfPacks'),
+        );
+        $this->db->where('id',$chemical_id);
+        $this->db->update('chemical_storage',$updateing_data);
     }
     public function check_chemical_availability($chemical_name){
         // return $this->db->where(array(
@@ -56,13 +65,13 @@ class Chemical_Model extends CI_Model
     }
     public function get_chemical_by_id($chemical_entry_id){
         $this->db->where('id',$chemical_entry_id);
-        $this->db->where('stored_count >',0);
+        $this->db->where('stored_count >=',0);
         $this->db->from('chemical_storage');
         return $this->db->get()->row();
     }
 
     public function update_by_id($update_details,$chemical_id){
         $this->db->where('id',$chemical_id);
-        $this->db->update($update_details);
+        $this->db->update('chemical_storage',$update_details);
     }
 }

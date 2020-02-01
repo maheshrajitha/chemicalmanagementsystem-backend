@@ -24,7 +24,7 @@ class Sales_Controller extends CI_Controller{
 
     public function put_an_order($chemical_entry_id){
         $chemical_data = $this->Chemical_Model->get_chemical_by_id($chemical_entry_id);
-        if(empty($chemical_data)){
+        if(empty($chemical_data) || $chemical_data->stored_count < 1){
             $this->session->set_flashdata('sales_error','There is no chemicals with this ID');
             redirect(base_url().'admin/sales');
         }else{
@@ -38,8 +38,13 @@ class Sales_Controller extends CI_Controller{
     }
 
     public function save_order(){
-        if(){
-            
+        if(!empty($this->input->post('orderChemicalId'))){
+            //
+            if($this->Sales_Model->create_an_order($this->input)){
+                redirect(base_url().'admin/sales');
+            }
+        }else{
+            redirect(base_url());
         }
     }
 }

@@ -1,7 +1,7 @@
 <div class="col-sm">
     <?php $this->load->view('control_panel/partials/_top_nav_bar');?>
     <div class="container-fluid">
-        <form action="" class="card round shadow" method="post">
+        <form action="<?php echo base_url(); ?>Sales_Controller/save_order" class="card round shadow" method="post">
             <div class="card-body">
                 <div class="form-row">
                     <div class="col-sm">
@@ -129,6 +129,10 @@
                     <input type="text" name="orderOrigin" id="orderOrigin" class="form-control w-50" readonly value="<?php echo $chemical_details->supplier_name ?>" required>
                 </div>
             </div>
+            <div class="card-footer">
+                <button type="submit" value="<?php echo $chemical_details->id ?>" name="orderChemicalId" id="orderChemicalId" class="btn btn-primary">Put Order</button>
+            </div>
         </form>
+        
     </div>
 </div>
