@@ -21,6 +21,7 @@
                     <div class="col-sm">
                         <label for="expDate">Expire Date</label>
                         <input type="date" name="expDate" id="expDate" class="form-control" placeholder="Enter Expiration Date" required>
+                        <small class="text-muted" id="expDateHelper"></small>
                     </div>
                     <div class="col-sm">
                         <label for="manufactureDate">Manufacture Date</label>
@@ -45,16 +46,8 @@
                 </div>
             </div>
             <div class="form-group">
-                <div class="form-row">
-                    <div class="col-sm">
-                        <label for="grnDate">GRN Date</label>
-                        <input type="date" name="grnDate" id="grnDate" class="form-control" required>
-                    </div>
-                    <div class="col-sm">
-                        <label for="fileNo">File Number</label>
-                        <input type="text" name="fileNo" id="fileNo" class="form-control" placeholder="File Number" required>
-                    </div>
-                </div>
+                <label for="grnDate">GRN Date</label>
+                <input type="date" name="grnDate" id="grnDate" class="form-control" required>
             </div>
         </div>
         <div class="card-footer">

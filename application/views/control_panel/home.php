@@ -1,7 +1,7 @@
 <div class="col-sm">
     <?php $this->load->view('control_panel/partials/_top_nav_bar');?>
     <div class="container-fluid">
-        <div class="row card-deck">
+        <div class="row card-deck mb-5">
             <div class="col-sm-4">
                 <div class="card round shadow">
                     <div class="card-body round bg-light">
@@ -28,6 +28,12 @@
                         <p class="text-dark font-weight-bold">Total Items In Stocks</p>
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <div class="card w-100 mt-5 rounded shadow">
+            <div class="card-body w-100">
+                <canvas class="w-100" id="salesChart"></canvas>
             </div>
         </div>
     </div>

@@ -1,14 +1,36 @@
 <div class="col-sm">
     <?php $this->load->view('control_panel/partials/_top_nav_bar');?>
     <div class="container-fluid">
-        <form action="<?php echo base_url(); ?>Sales_Controller/save_order" class="card round shadow" method="post">
+        <div class="d-flex justify-content-center align-items-center">
+            <input type="text" name="chemicalNameSearchKeyword" id="chemicalNameSearchKeyword" placeholder="Enter Product Name" class="form-control w-50 round shadow text-center">
+        </div>
+        <div class="d-flex justify-content-center align-items-center">
+            <select multiple name="searchChemicalResults" id="searchChemicalResults" class="form-control display-hide w-50 rounded-bottom shadow border border-primary mt-2"></select>
+        </div>
+        <form action="<?php echo base_url(); ?>Sales_Controller/save_order" class="card round shadow mt-5" method="post">
             <div class="card-body">
+                <dic class="form-row">
+                    <div class="col-sm">
+                        <div class="form-group">
+                            <label for="orderProduct">Product</label>
+                            <textarea type="text" name="orderProduct" id="orderProduct" class="form-control text-area-not-resize" required /></textarea>
+                        </div>
+                    </div>
+                    <div class="col-sm">
+                        <div class="form-group">
+                            <label for="orderCustomer">Customer</label>
+                            <input type="text" name="orderCustomer" id="orderCustomer" class="form-control" placeholder="Enter Customer's Name" required/>
+                            <select name="orderCustomer" id="orderCustomer" class="form-control display-hide"></select>
+                        </div>
+                    </div>
+                </dic>
                 <div class="form-row">
                     <div class="col-sm">
                         <div class="form-group">
                             <label for="orderSalesPerson">Sales Person</label>
                             <input type="text" name="orderSalesPerson" id="orderSalesPerson" placeholder="Enter Sales Person Name" class="form-control" required/>
-                            <select name="orderSalesPersonList" id="orderSalesPersonList" class="form-control display-hide"></select>
+                            <select multiple name="orderSalesPersonList" id="orderSalesPersonList" class="form-control display-hide"></select>
+                            <small class="text-muted">Type Employee No / Name / Phone Number Then Select Employee From Select Box</small>
                         </div>
                     </div>
                     <div class="col-sm">
@@ -32,21 +54,7 @@
                         </div>
                     </div>
                 </div>
-                <dic class="form-row">
-                    <div class="col-sm">
-                        <div class="form-group">
-                            <label for="orderProduct">Product</label>
-                            <input type="text" name="orderProduct" id="orderProduct" class="form-control" readonly value="<?php echo $chemical_details->chemical_name ?>" required />
-                        </div>
-                    </div>
-                    <div class="col-sm">
-                        <div class="form-group">
-                            <label for="orderCustomer">Customer</label>
-                            <input type="text" name="orderCustomer" id="orderCustomer" class="form-control" placeholder="Enter Customer's Name" required/>
-                            <select name="orderCustomer" id="orderCustomer" class="form-control display-hide"></select>
-                        </div>
-                    </div>
-                </dic>
+                
                 <div class="form-row">
                     <div class="col-sm">
                         <div class="form-group">
@@ -130,7 +138,7 @@
                 </div>
             </div>
             <div class="card-footer">
-                <button type="submit" value="<?php echo $chemical_details->id ?>" name="orderChemicalId" id="orderChemicalId" class="btn btn-primary">Put Order</button>
+                <button type="button" value="<?php echo $chemical_details->id ?>" name="orderChemicalId" id="orderChemicalId" class="btn btn-primary">Put Order</button>
             </div>
         </form>
         

@@ -72,10 +72,12 @@ html,body{
 }
 .display-hide{
     display: none;
-    transition: 5s;
 }
 .text-area-not-resize{
     resize: none;
     width: 100%;
     height: 20%;
+}
+.pointer-hand{
+    cursor: pointer;
 }
